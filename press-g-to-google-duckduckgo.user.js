@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Press "g" to Google (DuckDuckGo)
-// @namespace    https://wiki.gslin.org/wiki/Press_G_to_Google_DuckDuckGo
-// @version      0.20180626.0
+// @namespace    https://wiki.gslin.org/wiki/Google
+// @version      0.20180904.0
 // @description  Press "g" to Google in DuckDuckGo
 // @author       Gea-Suan Lin
 // @match        https://duckduckgo.com/*
@@ -20,8 +20,9 @@
             return;
         }
 
-        var q = document.getElementById('search_form_input');
-        var url = 'https://www.google.com/search?q=' + encodeURIComponent(q.value);
+        let q = document.getElementById('search_form_input').value;
+        let q_encoded = encodeURIComponent(q);
+        let url = 'https://www.google.com/search?q=' + q_encoded;
 
         document.location = url;
     });
