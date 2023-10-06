@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Press "g" to Google (DuckDuckGo)
 // @namespace    https://wiki.gslin.org/wiki/Google
-// @version      0.20210908.0
+// @version      0.20231006.0
 // @description  Press "g" to Google in DuckDuckGo
 // @author       Gea-Suan Lin
 // @match        https://duckduckgo.com/*
@@ -29,7 +29,7 @@
     });
 
     document.addEventListener('keyup', function(event) {
-        if ('input' === document.activeElement.tagName.toLowerCase()) {
+        if (['input', 'textarea'].indexOf(document.activeElement.tagName.toLowerCase()) >= 0) {
             return;
         }
         if ('g' !== event.key) {
